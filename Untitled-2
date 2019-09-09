@@ -1,0 +1,1809 @@
+<!-- panton start -->
+    <div class="t-records" data-hook="blocks-collection-content-node" data-tilda-formskey="01b578e9af5cf3a9d7e0bb6f6f976b83" data-tilda-page-alias="index" data-tilda-page-id="5666821" data-tilda-project-id="546870" id="allrecords">
+        <div class="r t-rec" data-record-type="270" id="rec101503541" style=" ">
+            <div class="t270"></div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    setTimeout(function () {
+                        var $root = $('html, body');
+                        $('a[href*="#"]:not([href="#"],.carousel-control,.t-carousel__control,[href^="#price"],[href^="#popup"],[href^="#prodpopup"],[href^="#order"])').click(function () {
+                            var target = $(this.hash);
+                            if (target.length == 0) {
+                                target = $('a[name="' + this.hash.substr(1) + '"]');
+                            }
+                            if (target.length == 0) {
+                                return true;
+                            }
+                            $root.animate({
+                                scrollTop: target.offset().top + 3
+                            }, 500);
+                            return false;
+                        });
+                    }, 500);
+                });
+            </script>
+        </div>
+
+        <div class="r t-rec t-screenmin-1200px" data-animationappear="off" data-record-type="131" data-screen-min="1200px" id="rec101710403" style=" ">
+            <!-- T123 -->
+            <div class="t123">
+                    <div class="t-container_100 ">
+                        <div class="t-width t-width_100 ">
+                            <script>
+                                $(document).ready(function () {
+                                    const shuffleArray = arr => arr.sort(() => Math.random() - 0.5);
+                                    const lineEq = (y2, y1, x2, x1, currentVal) => {
+                                        let m = (y2 - y1) / (x2 - x1);
+                                        let b = y1 - m * x1;
+                                        return m * currentVal + b
+                                    };
+                                    const lerp = (a, b, n) => (1 - n) * a + n * b;
+                                    const body = document.body;
+                                    const bodyColor = getComputedStyle(body).getPropertyValue('--color-bg').trim() || 'white';
+                                    const getMousePos = (e) => {
+                                        let posx = 0;
+                                        let posy = 0;
+                                        if (!e) 
+                                            e = window.event;
+                                        
+                                        if (e.clientX || e.clientY) {
+                                            posx = e.clientX;
+                                            posy = e.clientY
+                                        }
+                                        return {x: posx, y: posy}
+                                    }
+                                    let winsize;
+                                    const calcWinsize = () => winsize = {
+                                        width: window.innerWidth,
+                                        height: window.innerHeight
+                                    };
+                                    calcWinsize();
+                                    window.addEventListener('resize', calcWinsize);
+                                    class CursorFx {
+                                        constructor(el) {
+                                            this.DOM = {
+                                                el: el
+                                            };
+                                            this.DOM.dot = this.DOM.el.querySelector('.cursor__inner--dot');
+                                            this.DOM.circle = this.DOM.el.querySelector('.cursor__inner--circle');
+                                            this.bounds = {
+                                                dot: this.DOM.dot.getBoundingClientRect(),
+                                                circle: this.DOM.circle.getBoundingClientRect()
+                                            };
+                                            this.scale = 0.1;
+                                            this.opacity = 1;
+                                            this.mousePos = {
+                                                x: 0,
+                                                y: 0
+                                            };
+                                            this.lastMousePos = {
+                                                dot: {
+                                                    x: 0,
+                                                    y: 0
+                                                },
+                                                circle: {
+                                                    x: 0,
+                                                    y: 0
+                                                }
+                                            };
+                                            this.lastScale = 0.1;
+                                            this.lastOpacity = 1;
+                                            this.initEvents();
+                                            requestAnimationFrame(() => this.render())
+                                        }
+                                        initEvents() {
+                                            window.addEventListener('mousemove', ev => this.mousePos = getMousePos(ev))
+                                        }
+                                        render() {
+                                            $('.cursor__inner').css('visibility', 'visible');
+                                            this.lastMousePos.dot.x = lerp(this.lastMousePos.dot.x, this.mousePos.x - this.bounds.dot.width / 2, 0);
+                                            this.lastMousePos.dot.y = lerp(this.lastMousePos.dot.y, this.mousePos.y - this.bounds.dot.height / 2, 0);
+                                            this.lastMousePos.circle.x = lerp(this.lastMousePos.circle.x, this.mousePos.x - this.bounds.circle.width / 2, 1);
+                                            this.lastMousePos.circle.y = lerp(this.lastMousePos.circle.y, this.mousePos.y - this.bounds.circle.height / 2, 1);
+                                            this.lastScale = lerp(this.lastScale, this.scale, 0.15);
+                                            this.lastOpacity = lerp(this.lastOpacity, this.opacity, 0.1);
+                                            this.DOM.dot.style.transform = `translateX(${
+                                                (this.lastMousePos.dot.x)
+                                            }px) translateY(${
+                                                this.lastMousePos.dot.y
+                                            }px)`;
+                                            this.DOM.circle.style.transform = `translateX(${
+                                                (this.lastMousePos.circle.x)
+                                            }px) translateY(${
+                                                this.lastMousePos.circle.y
+                                            }px) scale(${
+                                                this.lastScale
+                                            })`;
+                                            this.DOM.circle.style.opacity = this.lastOpacity
+                                            requestAnimationFrame(() => this.render())
+                                        }
+                                        enter() {
+                                            cursor.scale = 1
+                                        }
+                                        leave() {
+                                            cursor.scale = 0.1
+                                        }
+                                        click() {
+                                            this.lastScale = 0.1;
+                                            this.lastOpacity = 0
+                                        }
+                                    }
+                                    const cursor = new CursorFx(document.querySelector('.cursor'));
+                                    [...document.querySelectorAll('[href]')].forEach((link) => {
+                                        link.addEventListener('mouseenter', () => cursor.enter());
+                                        link.addEventListener('mouseleave', () => cursor.leave());
+                                        link.addEventListener('click', () => cursor.click())
+                                    })
+                                });
+                                $(document).mouseleave(function () {
+                                    $(".cursor__inner").hide()
+                                });
+                                $(document).mouseenter(function () {
+                                    $(".cursor__inner").show()
+                                });
+                            </script>
+                            <style>
+                                *,
+                                *::after,
+                                *::before {
+                                    box-sizing: border-box;
+                                    cursor: none !important
+                                }
+                                .cursor__inner {
+                                    visibility: hidden;
+                                    z-index: 99999999999999;
+                                    pointer-events: none;
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    mix-blend-mode: difference;
+                                    border-radius: 50%
+                                }
+                                .cursor__inner--dot {
+                                    width: 10px;
+                                    height: 10px;
+                                    top: -10px;
+                                    left: -10px;
+                                    background: #fff
+                                }
+                                .cursor__inner--circle {
+                                    width: 100px;
+                                    height: 100px;
+                                    background: #fff;
+                                    border: 2px solid #fff
+                                }
+                            </style>
+                            <div class="cursor">
+                                <div class="cursor__inner cursor__inner--circle"></div>
+                                <div class="cursor__inner cursor__inner--dot"></div>
+                            </div>
+    
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="r t-rec t-screenmin-1200px" data-animationappear="off" data-record-type="396" data-screen-min="1200px" id="rec101777982" style=" ">
+        <!-- T396 -->
+        <style>
+                #rec101777982 .t396__artboard {
+                    height: 120px;
+                    background-color: #ffffff;
+                }
+                #rec101777982 .t396__filter {
+                    height: 120px;
+                }
+                #rec101777982 .t396__carrier {
+                    height: 120px;
+                    background-position: center center;
+                    background-attachment: scroll;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+                @media screen and(max-width: 1199px) {
+                    #rec101777982 .t396__artboard {}
+                    #rec101777982 .t396__filter {}
+                    #rec101777982 .t396__carrier {
+                        background-attachment: scroll;
+                    }
+                }
+                @media screen and(max-width: 959px) {}
+                @media screen and(max-width: 639px) {}
+                @media screen and(max-width: 479px) {}
+        </style>
+        <div class='t396'>
+            <div class="t396__artboard" data-artboard-height="120" data-artboard-height_vh="" data-artboard-ovrflw="" data-artboard-recid="101777982" data-artboard-valign="center">
+                <div class="t396__carrier" data-artboard-recid="101777982"></div>
+                <div class="t396__filter" data-artboard-recid="101777982"></div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                t396_init('101777982');
+            });
+        </script>
+        <!-- /T396 -->
+        </div>
+
+        <div class="r t-rec t-rec_pt_0 t-rec_pt-res-480_0 t-rec_pb_0 t-rec_pb-res-480_0" data-animationappear="off" data-record-type="396" id="rec101503586" style="padding-top:0px;padding-bottom:0px; ">
+            <!-- T396 -->
+            <style>
+                        #rec101503586 .t396__artboard {
+                            height: 280px;
+                            background-color: #ffffff;
+                        }
+                        #rec101503586 .t396__filter {
+                            height: 280px;
+                        }
+                        #rec101503586 .t396__carrier {
+                            height: 280px;
+                            background-position: center center;
+                            background-attachment: scroll;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                        @media screen and(max-width: 1199px) {
+                            #rec101503586 .t396__artboard {
+                                height: 460px;
+                            }
+                            #rec101503586 .t396__filter {
+                                height: 460px;
+                            }
+                            #rec101503586 .t396__carrier {
+                                height: 460px;
+                                background-attachment: scroll;
+                            }
+                        }
+                        @media screen and(max-width: 959px) {
+                            #rec101503586 .t396__artboard {
+                                height: 400px;
+                            }
+                            #rec101503586 .t396__filter {
+                                height: 400px;
+                            }
+                            #rec101503586 .t396__carrier {
+                                height: 400px;
+                            }
+                        }
+                        @media screen and(max-width: 639px) {
+                            #rec101503586 .t396__artboard {
+                                height: 320px;
+                            }
+                            #rec101503586 .t396__filter {
+                                height: 320px;
+                            }
+                            #rec101503586 .t396__carrier {
+                                height: 320px;
+                            }
+                        }
+                        @media screen and(max-width: 479px) {
+                            #rec101503586 .t396__artboard {
+                                height: 300px;
+                            }
+                            #rec101503586 .t396__filter {
+                                height: 300px;
+                            }
+                            #rec101503586 .t396__carrier {
+                                height: 300px;
+                            }
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1551165603610"] {
+                            color: #000000;
+                            z-index: 2;
+                            top: 917px;
+                            left: calc(50% - 600px + 622px);
+                            width: 270px;
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1551165603610"] .tn-atom {
+                            color: #000000;
+                            font-size: 20px;
+                            font-family: 'My-fonts';
+                            line-height: 1.55;
+                            font-weight: 400;
+                            background-position: center center;
+                            border-color: transparent;
+                            border-style: solid;
+                        }
+                        @media screen and(max-width: 1199px) {
+                            #rec101503586 .tn-elem[data-elem-id="1551165603610"] {
+                                top: 869px;
+                                left: calc(50% - 480px + 622px);
+                            }
+                        }
+                        @media screen and(max-width: 959px) {
+                            #rec101503586 .tn-elem[data-elem-id="1551165603610"] {
+                                top: 929px;
+                                left: calc(50% - 320px + 622px);
+                            }
+                        }
+                        @media screen and(max-width: 639px) {}
+                        @media screen and(max-width: 479px) {
+                            #rec101503586 .tn-elem[data-elem-id="1551165603610"] {
+                                top: 897px;
+                                left: calc(50% - 160px + 622px);
+                            }
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1553520361135"] {
+                            color: #000000;
+                            z-index: 3;
+                            top: 80px;
+                            left: calc(50% - 600px + -510px);
+                            width: 262px;
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1553520361135"] .tn-atom {
+                            color: #000000;
+                            font-size: 100px;
+                            font-family: 'My-fonts';
+                            line-height: 0.95;
+                            font-weight: 700;
+                            background-position: center center;
+                            border-color: transparent;
+                            border-style: solid;
+                        }
+                        @media screen and(max-width: 1199px) {
+                            #rec101503586 .tn-elem[data-elem-id="1553520361135"] {
+                                top: 80px;
+                                left: calc(50% - 480px + 10px);
+                            }
+                        }
+                        @media screen and(max-width: 959px) {
+                            #rec101503586 .tn-elem[data-elem-id="1553520361135"] {
+                                top: 72px;
+                                left: calc(50% - 320px + 10px);
+                            }
+                        }
+                        @media screen and(max-width: 639px) {
+                            #rec101503586 .tn-elem[data-elem-id="1553520361135"] {
+                                top: 72px;
+                                left: calc(50% - 240px + 10px);
+                            }
+                            #rec101503586 .tn-elem[data-elem-id="1553520361135"] .tn-atom {
+                                font-size: 84px;
+                            }
+                        }
+                        @media screen and(max-width: 479px) {
+                            #rec101503586 .tn-elem[data-elem-id="1553520361135"] {
+                                top: 75px;
+                                left: calc(50% - 160px + 8px);
+                            }
+                            #rec101503586 .tn-elem[data-elem-id="1553520361135"] .tn-atom {
+                                font-size: 54px;
+                            }
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1554803090300"] {
+                            color: #000000;
+                            z-index: 19;
+                            top: 175px;
+                            left: calc(50% - 600px + -510px);
+                            width: 262px;
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1554803090300"] .tn-atom {
+                            color: #000000;
+                            font-size: 100px;
+                            font-family: 'My-fonts';
+                            line-height: 0.95;
+                            font-weight: 700;
+                            background-position: center center;
+                            border-color: transparent;
+                            border-style: solid;
+                        }
+                        @media screen and(max-width: 1199px) {
+                            #rec101503586 .tn-elem[data-elem-id="1554803090300"] {
+                                top: 175px;
+                                left: calc(50% - 480px + 10px);
+                            }
+                        }
+                        @media screen and(max-width: 959px) {
+                            #rec101503586 .tn-elem[data-elem-id="1554803090300"] {
+                                top: 180px;
+                                left: calc(50% - 320px + 10px);
+                            }
+                        }
+                        @media screen and(max-width: 639px) {
+                            #rec101503586 .tn-elem[data-elem-id="1554803090300"] {
+                                top: 158px;
+                                left: calc(50% - 240px + 10px);
+                            }
+                            #rec101503586 .tn-elem[data-elem-id="1554803090300"] .tn-atom {
+                                font-size: 84px;
+                            }
+                        }
+                        @media screen and(max-width: 479px) {
+                            #rec101503586 .tn-elem[data-elem-id="1554803090300"] {
+                                top: 134px;
+                                left: calc(50% - 160px + 10px);
+                                width: 212px;
+                            }
+                            #rec101503586 .tn-elem[data-elem-id="1554803090300"] .tn-atom {
+                                font-size: 54px;
+                            }
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1554803138197"] {
+                            z-index: 20;
+                            top: 20px;
+                            left: calc(50% - 600px + -702px);
+                            width: 721px;
+                            height: 406px;
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1554803138197"] .tn-atom {
+                            background-color: #ffffff;
+                            background-position: center center;
+                            border-color: transparent;
+                            border-style: solid;
+                        }
+                        @media screen and(max-width: 1199px) {
+                            #rec101503586 .tn-elem[data-elem-id="1554803138197"] {
+                                top: 430px;
+                                left: calc(50% - 480px + -984px);
+                            }
+                        }
+                        @media screen and(max-width: 959px) {
+                            #rec101503586 .tn-elem[data-elem-id="1554803138197"] {
+                                top: 490px;
+                                left: calc(50% - 320px + -984px);
+                            }
+                        }
+                        @media screen and(max-width: 639px) {}
+                        @media screen and(max-width: 479px) {
+                            #rec101503586 .tn-elem[data-elem-id="1554803138197"] {
+                                top: 458px;
+                                left: calc(50% - 160px + -984px);
+                            }
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1555500813742"] {
+                            color: #000000;
+                            z-index: 21;
+                            top: 201px;
+                            left: calc(50% - 600px + 721px);
+                            width: 470px;
+                        }
+                        #rec101503586 .tn-elem[data-elem-id="1555500813742"] .tn-atom {
+                            color: #000000;
+                            font-size: 20px;
+                            font-family: 'My-fonts';
+                            line-height: 1.55;
+                            font-weight: 400;
+                            background-position: center center;
+                            border-color: transparent;
+                            border-style: solid;
+                        }
+                        @media screen and(max-width: 1199px) {
+                            #rec101503586 .tn-elem[data-elem-id="1555500813742"] {
+                                top: 312px;
+                                left: calc(50% - 480px + 20px);
+                            }
+                        }
+                        @media screen and(max-width: 959px) {
+                            #rec101503586 .tn-elem[data-elem-id="1555500813742"] {
+                                top: 322px;
+                                left: calc(50% - 320px + 10px);
+                                width: 430px;
+                            }
+                        }
+                        @media screen and(max-width: 639px) {
+                            #rec101503586 .tn-elem[data-elem-id="1555500813742"] {
+                                top: 270px;
+                                left: calc(50% - 240px + 10px);
+                                width: 380px;
+                            }
+                            #rec101503586 .tn-elem[data-elem-id="1555500813742"] .tn-atom {
+                                font-size: 16px;
+                            }
+                        }
+                        @media screen and(max-width: 479px) {
+                            #rec101503586 .tn-elem[data-elem-id="1555500813742"] {
+                                top: 214px;
+                                left: calc(50% - 160px + 10px);
+                                width: 280px;
+                            }
+                        }
+            </style>
+            <div class='t396'>
+                <div class="t396__artboard" data-artboard-height-res-320="300" data-artboard-height-res-480="320" data-artboard-height-res-640="400" data-artboard-height-res-960="460" data-artboard-height="280" data-artboard-height_vh="" data-artboard-ovrflw="" data-artboard-recid="101503586" data-artboard-valign="center">
+                    <div class="t396__carrier" data-artboard-recid="101503586"></div>
+                    <div class="t396__filter" data-artboard-recid="101503586"></div>
+                    <div class='t396__elem tn-elem tn-elem__1015035861551165603610' data-elem-id='1551165603610' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="622" data-field-left-res-640-value="622" data-field-left-res-960-value="622" data-field-left-value="622" data-field-leftunits-value="" data-field-top-res-320-value="897" data-field-top-res-640-value="929" data-field-top-res-960-value="869" data-field-top-value="917" data-field-topunits-value="" data-field-width-value="270" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1551165603610'></div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035861553520361135' data-animate-sbs-event="intoview" data-animate-sbs-opts="[{'ti':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','ea':'','dt':'0'},{'ti':800,'mx':531,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','ea':'easeOut','dt':'0'}]" data-animate-sbs-trg="1" data-animate-sbs-trgofst="0" data-elem-id='1553520361135' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="8" data-field-left-res-480-value="10" data-field-left-res-640-value="10" data-field-left-res-960-value="10" data-field-left-value="-510" data-field-leftunits-value="" data-field-top-res-320-value="75" data-field-top-res-480-value="72" data-field-top-res-640-value="72" data-field-top-res-960-value="80" data-field-top-value="80" data-field-topunits-value="" data-field-width-value="262" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1553520361135'>Color</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035861554803090300' data-animate-sbs-event="intoview" data-animate-sbs-opts="[{'ti':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','ea':'','dt':'0'},{'ti':900,'mx':531,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','ea':'easeOut','dt':200}]" data-animate-sbs-trg="1" data-animate-sbs-trgofst="0" data-elem-id='1554803090300' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="10" data-field-left-res-480-value="10" data-field-left-res-640-value="10" data-field-left-res-960-value="10" data-field-left-value="-510" data-field-leftunits-value="" data-field-top-res-320-value="134" data-field-top-res-480-value="158" data-field-top-res-640-value="180" data-field-top-res-960-value="175" data-field-top-value="175" data-field-topunits-value="" data-field-width-res-320-value="212" data-field-width-value="262" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1554803090300'>values</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035861554803138197' data-elem-id='1554803138197' data-elem-type='shape' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-height-value="406" data-field-heightunits-value="" data-field-left-res-320-value="-984" data-field-left-res-640-value="-984" data-field-left-res-960-value="-984" data-field-left-value="-702" data-field-leftunits-value="" data-field-top-res-320-value="458" data-field-top-res-640-value="490" data-field-top-res-960-value="430" data-field-top-value="20" data-field-topunits-value="" data-field-width-value="721" data-field-widthunits-value="">
+                        <div class='tn-atom'></div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035861555500813742' data-elem-id='1555500813742' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="10" data-field-left-res-480-value="10" data-field-left-res-640-value="10" data-field-left-res-960-value="20" data-field-left-value="721" data-field-leftunits-value="" data-field-top-res-320-value="214" data-field-top-res-480-value="270" data-field-top-res-640-value="322" data-field-top-res-960-value="312" data-field-top-value="201" data-field-topunits-value="" data-field-width-res-320-value="280" data-field-width-res-480-value="380" data-field-width-res-640-value="430" data-field-width-value="470" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555500813742'>The Pantone Color of the Year 2019 can be found in the following color systems:<br></div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    t396_init('101503586');
+                });
+            </script>
+            <!-- /T396 -->
+        </div>
+
+        <div class="r t-rec t-screenmin-1200px" data-animationappear="off" data-record-type="396" data-screen-min="1200px" id="rec101778231" style=" ">
+            <!-- T396 -->
+            <style>
+                    #rec101778231 .t396__artboard {
+                        height: 120px;
+                        background-color: #ffffff;
+                    }
+                    #rec101778231 .t396__filter {
+                        height: 120px;
+                    }
+                    #rec101778231 .t396__carrier {
+                        height: 120px;
+                        background-position: center center;
+                        background-attachment: scroll;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101778231 .t396__artboard {}
+                        #rec101778231 .t396__filter {}
+                        #rec101778231 .t396__carrier {
+                            background-attachment: scroll;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {}
+                    @media screen and(max-width: 639px) {}
+                    @media screen and(max-width: 479px) {}
+            </style>
+            <div class='t396'>
+                <div class="t396__artboard" data-artboard-height="120" data-artboard-height_vh="" data-artboard-ovrflw="" data-artboard-recid="101778231" data-artboard-valign="center">
+                    <div class="t396__carrier" data-artboard-recid="101778231"></div>
+                    <div class="t396__filter" data-artboard-recid="101778231"></div>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    t396_init('101778231');
+                });
+            </script>
+            <!-- /T396 -->
+        </div>
+        
+        <div class="r t-rec" data-animationappear="off" data-record-type="131" id="rec101503588" style=" ">
+            <!-- T123 -->
+            <div class="t123">
+            <div class="t-container_100 ">
+                <div class="t-width t-width_100 ">
+                    <script>
+                        $(document).ready(function () { // Copy-color-to-clipboard
+    
+                            $("a[href='#copy-color']").attr('onclick', 'copyColor(event)').addClass('copy-color-btn').removeAttr('href');
+    
+                        });
+    
+                        function copyColor(e) {
+                            e.preventDefault();
+                            var copyText = document.getElementById("pantone-color");
+                            copyText.select();
+                            document.execCommand("copy");
+                            $(".copy-color-btn").text('copied');
+                        }
+                    </script>
+                    <div style="overflow: hidden; display: block; height: 1px; width: 1px">
+                        <input id="pantone-color" type="text" value="#ff6f61">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+  
+        <div class="r t-rec t-rec_pb_0 t-rec_pb-res-480_0" data-animationappear="off" data-record-type="396" id="rec101503589" style="padding-bottom:0px; ">
+            <!-- T396 -->
+            <style>
+                    #rec101503589 .t396__artboard {
+                        height: 2800px;
+                        background-color: #ffffff;
+                    }
+                    #rec101503589 .t396__filter {
+                        height: 2800px;
+                    }
+                    #rec101503589 .t396__carrier {
+                        height: 2800px;
+                        background-position: center center;
+                        background-attachment: scroll;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .t396__artboard {
+                            height: 980px;
+                        }
+                        #rec101503589 .t396__filter {
+                            height: 980px;
+                        }
+                        #rec101503589 .t396__carrier {
+                            height: 980px;
+                            background-attachment: scroll;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .t396__artboard {
+                            height: 860px;
+                        }
+                        #rec101503589 .t396__filter {
+                            height: 860px;
+                        }
+                        #rec101503589 .t396__carrier {
+                            height: 860px;
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .t396__artboard {
+                            height: 1100px;
+                        }
+                        #rec101503589 .t396__filter {
+                            height: 1100px;
+                        }
+                        #rec101503589 .t396__carrier {
+                            height: 1100px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .t396__artboard {
+                            height: 1220px;
+                        }
+                        #rec101503589 .t396__filter {
+                            height: 1220px;
+                        }
+                        #rec101503589 .t396__carrier {
+                            height: 1220px;
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555422145352"] {
+                        z-index: 2;
+                        top: 0;
+                        left: calc(50% - 600px + 1527px);
+                        width: 200%;
+                        height: 100vh;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555422145352"] .tn-atom {
+                        background-color: #f0f0f0;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422145352"] {
+                            top: -40px;
+                            left: calc(50% - 320px + 1527px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422145352"] {
+                            top: -363px;
+                            left: calc(50% - 240px + 1527px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422145352"] {
+                            top: -566px;
+                            left: calc(50% - 160px + 1527px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555422360707"] {
+                        color: #000000;
+                        z-index: 5;
+                        top: 51px;
+                        left: calc(50% - 600px + 1605px);
+                        width: 98px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555422360707"] .tn-atom {
+                        color: #000000;
+                        font-size: 20px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 400;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422360707"] {
+                            top: 11px;
+                            left: calc(50% - 320px + 1605px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422360707"] {
+                            top: -312px;
+                            left: calc(50% - 240px + 1605px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422360707"] {
+                            top: -515px;
+                            left: calc(50% - 160px + 1605px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555422757877"] {
+                        z-index: 6;
+                        top: 0;
+                        left: calc(50% - 600px + 2286px);
+                        width: 200%;
+                        height: 100vh;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555422757877"] .tn-atom {
+                        background-color: #d6d6d6;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422757877"] {
+                            top: -40px;
+                            left: calc(50% - 320px + 2286px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422757877"] {
+                            top: -363px;
+                            left: calc(50% - 240px + 2286px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422757877"] {
+                            top: -566px;
+                            left: calc(50% - 160px + 2286px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555422772626"] {
+                        color: #000000;
+                        z-index: 7;
+                        top: 95px;
+                        left: calc(50% - 600px + 2360px);
+                        width: 218px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555422772626"] .tn-atom {
+                        color: #000000;
+                        font-size: 20px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 700;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422772626"] {
+                            top: 55px;
+                            left: calc(50% - 320px + 2360px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422772626"] {
+                            top: -268px;
+                            left: calc(50% - 240px + 2360px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555422772626"] {
+                            top: -471px;
+                            left: calc(50% - 160px + 2360px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555483985542"] {
+                        color: #000000;
+                        z-index: 10;
+                        top: 51px;
+                        left: calc(50% - 600px + 20px);
+                        width: 220px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555483985542"] .tn-atom {
+                        color: #000000;
+                        font-size: 20px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 400;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555483985542"] {
+                            top: 80px;
+                            left: calc(50% - 480px + 590px);
+                            width: 230px;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555483985542"] {
+                            top: 8px;
+                            left: calc(50% - 320px + 390px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555483985542"] {
+                            top: 1px;
+                            left: calc(50% - 240px + 10px);
+                            width: 180px;
+                        }
+                        #rec101503589 .tn-elem[data-elem-id="1555483985542"] .tn-atom {
+                            font-size: 16px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555483985542"] {
+                            top: 61px;
+                            left: calc(50% - 160px + 10px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484002996"] {
+                        color: #000000;
+                        z-index: 11;
+                        top: 91px;
+                        left: calc(50% - 600px + 20px);
+                        width: 370px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484002996"] .tn-atom {
+                        color: #000000;
+                        font-size: 34px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 700;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484002996"] {
+                            top: 125px;
+                            left: calc(50% - 480px + 590px);
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484002996"] {
+                            top: 53px;
+                            left: calc(50% - 320px + 390px);
+                            width: 250px;
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484002996"] {
+                            top: 36px;
+                            left: calc(50% - 240px + 10px);
+                            width: 210px;
+                        }
+                        #rec101503589 .tn-elem[data-elem-id="1555484002996"] .tn-atom {
+                            font-size: 20px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484002996"] {
+                            top: 96px;
+                            left: calc(50% - 160px + 10px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484020973"] {
+                        color: #000000;
+                        z-index: 12;
+                        top: 401px;
+                        left: calc(50% - 600px + 22px);
+                        width: 110px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484020973"] .tn-atom {
+                        color: #000000;
+                        font-size: 16px;
+                        font-family: 'My-fonts';
+                        line-height: 2;
+                        font-weight: 400;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484020973"] {
+                            top: 247px;
+                            left: calc(50% - 480px + 592px);
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484020973"] {
+                            top: 235px;
+                            left: calc(50% - 320px + 392px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484020973"] {
+                            top: 0;
+                            left: calc(50% - 240px + 252px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484020973"] {
+                            top: 180px;
+                            left: calc(50% - 160px + 12px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484020979"] {
+                        color: #000000;
+                        z-index: 13;
+                        top: 401px;
+                        left: calc(50% - 600px + 92px);
+                        width: 90px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484020979"] .tn-atom {
+                        color: #000000;
+                        font-size: 16px;
+                        font-family: 'My-fonts';
+                        line-height: 2;
+                        font-weight: 700;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484020979"] {
+                            top: 247px;
+                            left: calc(50% - 480px + 662px);
+                            width: 90px;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484020979"] {
+                            top: 235px;
+                            left: calc(50% - 320px + 462px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484020979"] {
+                            top: 0;
+                            left: calc(50% - 240px + 322px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484020979"] {
+                            top: 180px;
+                            left: calc(50% - 160px + 82px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484178564"] {
+                        color: #000000;
+                        z-index: 14;
+                        top: -366px;
+                        left: calc(50% - 600px + 841px);
+                        width: 210px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484178564"] .tn-atom {
+                        color: #000000;
+                        font-size: 24px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 700;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178564"] {
+                            top: 719px;
+                            left: calc(50% - 480px + 20px);
+                            width: 200px;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178564"] {
+                            top: 696px;
+                            left: calc(50% - 320px + 10px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178564"] {
+                            top: 903px;
+                            left: calc(50% - 240px + 10px);
+                        }
+                        #rec101503589 .tn-elem[data-elem-id="1555484178564"] .tn-atom {
+                            font-size: 20px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178564"] {
+                            top: 925px;
+                            left: calc(50% - 160px + 10px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484178567"] {
+                        color: #000000;
+                        z-index: 15;
+                        top: -407px;
+                        left: calc(50% - 600px + 840px);
+                        width: 100px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484178567"] .tn-atom {
+                        color: #000000;
+                        font-size: 20px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 400;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178567"] {
+                            top: 678px;
+                            left: calc(50% - 480px + 20px);
+                            width: 120px;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178567"] {
+                            top: 655px;
+                            left: calc(50% - 320px + 10px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178567"] {
+                            top: 872px;
+                            left: calc(50% - 240px + 10px);
+                        }
+                        #rec101503589 .tn-elem[data-elem-id="1555484178567"] .tn-atom {
+                            font-size: 16px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178567"] {
+                            top: 894px;
+                            left: calc(50% - 160px + 10px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484178571"] {
+                        color: #000000;
+                        z-index: 16;
+                        top: -298px;
+                        left: calc(50% - 600px + 842px);
+                        width: 59px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484178571"] .tn-atom {
+                        color: #000000;
+                        font-size: 16px;
+                        font-family: 'My-fonts';
+                        line-height: 2;
+                        font-weight: 400;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178571"] {
+                            top: 787px;
+                            left: calc(50% - 480px + 20px);
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178571"] {
+                            top: 764px;
+                            left: calc(50% - 320px + 10px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178571"] {
+                            top: 871px;
+                            left: calc(50% - 240px + 250px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178571"] {
+                            top: 980px;
+                            left: calc(50% - 160px + 10px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484178575"] {
+                        color: #000000;
+                        z-index: 17;
+                        top: -298px;
+                        left: calc(50% - 600px + 912px);
+                        width: 120px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484178575"] .tn-atom {
+                        color: #000000;
+                        font-size: 16px;
+                        font-family: 'My-fonts';
+                        line-height: 2;
+                        font-weight: 700;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178575"] {
+                            top: 787px;
+                            left: calc(50% - 480px + 92px);
+                            width: 100px;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178575"] {
+                            top: 764px;
+                            left: calc(50% - 320px + 82px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178575"] {
+                            top: 871px;
+                            left: calc(50% - 240px + 322px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484178575"] {
+                            top: 980px;
+                            left: calc(50% - 160px + 82px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484224710"] {
+                        color: #000000;
+                        z-index: 18;
+                        top: 91px;
+                        left: calc(50% - 600px + 1605px);
+                        width: 208px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484224710"] .tn-atom {
+                        color: #000000;
+                        font-size: 34px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 700;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484224710"] {
+                            top: 51px;
+                            left: calc(50% - 320px + 1605px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484224710"] {
+                            top: -272px;
+                            left: calc(50% - 240px + 1605px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484224710"] {
+                            top: -475px;
+                            left: calc(50% - 160px + 1605px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484255231"] {
+                        color: #000000;
+                        z-index: 19;
+                        top: 401px;
+                        left: calc(50% - 600px + 1605px);
+                        width: 98px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484255231"] .tn-atom {
+                        color: #000000;
+                        font-size: 16px;
+                        font-family: 'My-fonts';
+                        line-height: 2;
+                        font-weight: 400;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484255231"] {
+                            top: 361px;
+                            left: calc(50% - 320px + 1605px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484255231"] {
+                            top: 38px;
+                            left: calc(50% - 240px + 1605px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484255231"] {
+                            top: -165px;
+                            left: calc(50% - 160px + 1605px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484274301"] {
+                        color: #000000;
+                        z-index: 20;
+                        top: 400px;
+                        left: calc(50% - 600px + 1695px);
+                        width: 98px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484274301"] .tn-atom {
+                        color: #000000;
+                        font-size: 16px;
+                        font-family: 'My-fonts';
+                        line-height: 2;
+                        font-weight: 700;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484274301"] {
+                            top: 360px;
+                            left: calc(50% - 320px + 1695px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484274301"] {
+                            top: 37px;
+                            left: calc(50% - 240px + 1695px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484274301"] {
+                            top: -166px;
+                            left: calc(50% - 160px + 1695px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484579871"] {
+                        z-index: 21;
+                        top: 651px;
+                        left: calc(50% - 600px + 21px);
+                        width: 340px;
+                        height: 157px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484579871"] .tn-atom {
+                        background-color: #ff6f61;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579871"] {
+                            top: 461px;
+                            left: calc(50% - 480px + 595px);
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579871"] {
+                            top: 443px;
+                            left: calc(50% - 320px + 11px);
+                            width: 355px;
+                            height: 157px;
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579871"] {
+                            top: 659px;
+                            left: calc(50% - 240px + 11px);
+                            width: 300px;
+                            height: 157px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579871"] {
+                            top: 689px;
+                            left: calc(50% - 160px + 11px);
+                            width: 150px;
+                            height: 150px;
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484579878"] {
+                        color: #ffffff;
+                        text-align: center;
+                        z-index: 22;
+                        top: 651px;
+                        left: calc(50% - 600px + 360px);
+                        width: 157px;
+                        height: 157px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484579878"] .tn-atom {
+                        color: #ffffff;
+                        font-size: 16px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 700;
+                        border-width: 0;
+                        background-color: #000000;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484579878"] .tn-atom:hover {
+                        background-color: #ff6f61;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579878"] {
+                            top: 461px;
+                            left: calc(50% - 480px + 793px);
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579878"] {
+                            top: 443px;
+                            left: calc(50% - 320px + 366px);
+                            width: 265px;
+                            height: 157px;
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579878"] {
+                            top: 659px;
+                            left: calc(50% - 240px + 311px);
+                            width: 160px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579878"] {
+                            top: 689px;
+                            left: calc(50% - 160px + 161px);
+                            width: 150px;
+                            height: 150px;
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484579884"] {
+                        color: #ffffff;
+                        z-index: 23;
+                        top: 711px;
+                        left: calc(50% - 600px + 159px);
+                        width: 62px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484579884"] .tn-atom {
+                        color: #ffffff;
+                        font-size: 20px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 700;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579884"] {
+                            top: 526px;
+                            left: calc(50% - 480px + 662px);
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579884"] {
+                            top: 508px;
+                            left: calc(50% - 320px + 156px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579884"] {
+                            top: 724px;
+                            left: calc(50% - 240px + 129px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484579884"] {
+                            top: 749px;
+                            left: calc(50% - 160px + 54px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484632309"] {
+                        z-index: 24;
+                        top: -557px;
+                        left: calc(50% - 600px + -48px);
+                        width: 462px;
+                        height: 462px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555484632309"] .tn-atom {
+                        background-position: center center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-attachment: scroll;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484632309"] {
+                            top: 80px;
+                            left: calc(50% - 480px + 21px);
+                            width: 502px;
+                            height: 538px;
+                        }
+                        #rec101503589 .tn-elem[data-elem-id="1555484632309"] .tn-atom {
+                            background-attachment: scroll;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484632309"] {
+                            top: 2px;
+                            left: calc(50% - 320px + 10px);
+                            width: 355px;
+                            height: 380px;
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484632309"] {
+                            top: 139px;
+                            left: calc(50% - 240px + 10px);
+                            width: 460px;
+                            height: 460px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555484632309"] {
+                            top: 328px;
+                            left: calc(50% - 160px + 10px);
+                            width: 300px;
+                            height: 300px;
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555485905093"] {
+                        color: #ffffff;
+                        text-align: center;
+                        z-index: 26;
+                        top: 410px;
+                        left: calc(50% - 600px + 2360px);
+                        width: 60px;
+                        height: 60px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555485905093"] .tn-atom {
+                        color: #ffffff;
+                        font-size: 14px;
+                        font-family: 'Arial';
+                        line-height: 1.55;
+                        font-weight: 700;
+                        border-width: 1px;
+                        border-radius: 30px;
+                        background-color: #000000;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555485905093"] .tn-atom:hover {
+                        background-color: #ff6f61;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555485905093"] {
+                            top: 814px;
+                            left: calc(50% - 480px + 890px);
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555485905093"] {
+                            top: 791px;
+                            left: calc(50% - 320px + 560px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555485905093"] {
+                            top: 1029px;
+                            left: calc(50% - 240px + 423px);
+                            width: 45px;
+                            height: 45px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555485905093"] {
+                            top: 1124px;
+                            left: calc(50% - 160px + 263px);
+                        }
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555488645877"] {
+                        z-index: 27;
+                        top: 0;
+                        left: calc(100% - 100px + 1627px);
+                        width: 100%;
+                        height: 100vh;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555488645877"] .tn-atom {
+                        background-color: #ffffff;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555488645877"] {
+                            top: -40px;
+                            left: calc(100% - 100px + 1627px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555488645877"] {
+                            top: -80px;
+                            left: calc(100% - 100px + 1627px);
+                        }
+                    }
+                    @media screen and(max-width: 479px) {}
+                    #rec101503589 .tn-elem[data-elem-id="1555925186574"] {
+                        color: #000000;
+                        z-index: 28;
+                        top: 95px;
+                        left: calc(50% - 600px + 2360px);
+                        width: 218px;
+                    }
+                    #rec101503589 .tn-elem[data-elem-id="1555925186574"] .tn-atom {
+                        color: #000000;
+                        font-size: 20px;
+                        font-family: 'My-fonts';
+                        line-height: 1.55;
+                        font-weight: 700;
+                        background-position: center center;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555925186574"] {
+                            top: 785px;
+                            left: calc(50% - 480px + 600px);
+                        }
+                    }
+                    @media screen and(max-width: 959px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555925186574"] {
+                            top: 767px;
+                            left: calc(50% - 320px + 310px);
+                        }
+                    }
+                    @media screen and(max-width: 639px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555925186574"] {
+                            top: 1019px;
+                            left: calc(50% - 240px + 10px);
+                            width: 318px;
+                        }
+                    }
+                    @media screen and(max-width: 479px) {
+                        #rec101503589 .tn-elem[data-elem-id="1555925186574"] {
+                            top: 1109px;
+                            left: calc(50% - 160px + 10px);
+                            width: 168px;
+                        }
+                        #rec101503589 .tn-elem[data-elem-id="1555925186574"] .tn-atom {
+                            font-size: 16px;
+                        }
+                    }
+            </style>
+            <div class='t396'>
+                <div class="t396__artboard" data-artboard-height-res-320="1220" data-artboard-height-res-480="1100" data-artboard-height-res-640="860" data-artboard-height-res-960="980" data-artboard-height="2800" data-artboard-height_vh="" data-artboard-ovrflw="" data-artboard-recid="101503589" data-artboard-valign="center">
+                    <div class="t396__carrier" data-artboard-recid="101503589"></div>
+                    <div class="t396__filter" data-artboard-recid="101503589"></div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555422145352' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1000,'mx':-947,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="0" data-elem-id='1555422145352' data-elem-type='shape' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-height-value="100" data-field-heightunits-value="%" data-field-left-res-320-value="1527" data-field-left-res-480-value="1527" data-field-left-res-640-value="1527" data-field-left-value="1527" data-field-leftunits-value="" data-field-top-res-320-value="-566" data-field-top-res-480-value="-363" data-field-top-res-640-value="-40" data-field-top-value="0" data-field-topunits-value="" data-field-width-value="200" data-field-widthunits-value="%">
+                        <div class='tn-atom'></div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555422360707' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1000,'mx':-947,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'},{'di':800,'mx':-947,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="50" data-elem-id='1555422360707' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="1605" data-field-left-res-480-value="1605" data-field-left-res-640-value="1605" data-field-left-value="1605" data-field-leftunits-value="" data-field-top-res-320-value="-515" data-field-top-res-480-value="-312" data-field-top-res-640-value="11" data-field-top-value="51" data-field-topunits-value="" data-field-width-value="98" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555422360707'>Plus series</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555422757877' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1200,'mx':-1327,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="0" data-elem-id='1555422757877' data-elem-type='shape' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-height-value="100" data-field-heightunits-value="%" data-field-left-res-320-value="2286" data-field-left-res-480-value="2286" data-field-left-res-640-value="2286" data-field-left-value="2286" data-field-leftunits-value="" data-field-top-res-320-value="-566" data-field-top-res-480-value="-363" data-field-top-res-640-value="-40" data-field-top-value="0" data-field-topunits-value="" data-field-width-value="200" data-field-widthunits-value="%">
+                        <div class='tn-atom'></div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555422772626' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1200,'mx':-1327,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'},{'di':600,'mx':-1327,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="100" data-elem-id='1555422772626' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="2360" data-field-left-res-480-value="2360" data-field-left-res-640-value="2360" data-field-left-value="2360" data-field-leftunits-value="" data-field-top-res-320-value="-471" data-field-top-res-480-value="-268" data-field-top-res-640-value="55" data-field-top-value="95" data-field-topunits-value="" data-field-width-value="218" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555422772626' target="_blank">
+                            <a href="https://www.pantone.com/images/color-of-the-year/2019/pantone-color-of-the-year-2019-living-coral-16-1546-for-adobe.ase" style="pointer-events: none; color: rgb(0, 0, 0) !important;">Get Living Coral in ASE file format for Adobe® Applications.</a>
+                        </div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555483985542' data-animate-fix-dist="1800" data-animate-fix-trgofst="50" data-animate-fix="0" data-elem-id='1555483985542' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="10" data-field-left-res-480-value="10" data-field-left-res-640-value="390" data-field-left-res-960-value="590" data-field-left-value="20" data-field-leftunits-value="" data-field-top-res-320-value="61" data-field-top-res-480-value="1" data-field-top-res-640-value="8" data-field-top-res-960-value="80" data-field-top-value="51" data-field-topunits-value="" data-field-width-res-480-value="180" data-field-width-res-960-value="230" data-field-width-value="220" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555483985542'>Fashion, home + interior</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484002996' data-animate-fix-dist="1800" data-animate-fix-trgofst="90" data-animate-fix="0" data-elem-id='1555484002996' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="10" data-field-left-res-480-value="10" data-field-left-res-640-value="390" data-field-left-res-960-value="590" data-field-left-value="20" data-field-leftunits-value="" data-field-top-res-320-value="96" data-field-top-res-480-value="36" data-field-top-res-640-value="53" data-field-top-res-960-value="125" data-field-top-value="91" data-field-topunits-value="" data-field-width-res-480-value="210" data-field-width-res-640-value="250" data-field-width-value="370" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484002996'>PANTONE 16-1546 Living Сoral TCX</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484020973' data-animate-fix-dist="1800" data-animate-fix-trgofst="400" data-animate-fix="0" data-elem-id='1555484020973' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="12" data-field-left-res-480-value="252" data-field-left-res-640-value="392" data-field-left-res-960-value="592" data-field-left-value="22" data-field-leftunits-value="" data-field-top-res-320-value="180" data-field-top-res-480-value="0" data-field-top-res-640-value="235" data-field-top-res-960-value="247" data-field-top-value="401" data-field-topunits-value="" data-field-width-value="110" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484020973'>CMYK:
+                            <br>
+                            sRGB:<br>
+                            HTML:</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484020979' data-animate-fix-dist="1800" data-animate-fix-trgofst="400" data-animate-fix="0" data-elem-id='1555484020979' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="82" data-field-left-res-480-value="322" data-field-left-res-640-value="462" data-field-left-res-960-value="662" data-field-left-value="92" data-field-leftunits-value="" data-field-top-res-320-value="180" data-field-top-res-480-value="0" data-field-top-res-640-value="235" data-field-top-res-960-value="247" data-field-top-value="401" data-field-topunits-value="" data-field-width-res-960-value="90" data-field-width-value="90" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484020979'>0 65 54 0<br>255 111 97<br>ff6f61</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484178564' data-elem-id='1555484178564' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="10" data-field-left-res-480-value="10" data-field-left-res-640-value="10" data-field-left-res-960-value="20" data-field-left-value="841" data-field-leftunits-value="" data-field-top-res-320-value="925" data-field-top-res-480-value="903" data-field-top-res-640-value="696" data-field-top-res-960-value="719" data-field-top-value="-366" data-field-topunits-value="" data-field-width-res-960-value="200" data-field-width-value="210" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484178564'>PANTONE 2345 C</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484178567' data-elem-id='1555484178567' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="10" data-field-left-res-480-value="10" data-field-left-res-640-value="10" data-field-left-res-960-value="20" data-field-left-value="840" data-field-leftunits-value="" data-field-top-res-320-value="894" data-field-top-res-480-value="872" data-field-top-res-640-value="655" data-field-top-res-960-value="678" data-field-top-value="-407" data-field-topunits-value="" data-field-width-res-960-value="120" data-field-width-value="100" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484178567'>Plus series</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484178571' data-elem-id='1555484178571' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="10" data-field-left-res-480-value="250" data-field-left-res-640-value="10" data-field-left-res-960-value="20" data-field-left-value="842" data-field-leftunits-value="" data-field-top-res-320-value="980" data-field-top-res-480-value="871" data-field-top-res-640-value="764" data-field-top-res-960-value="787" data-field-top-value="-298" data-field-topunits-value="" data-field-width-value="59" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484178571'>CMYK:
+                            <br>
+                            sRGB:<br>
+                            HTML:</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484178575' data-elem-id='1555484178575' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="82" data-field-left-res-480-value="322" data-field-left-res-640-value="82" data-field-left-res-960-value="92" data-field-left-value="912" data-field-leftunits-value="" data-field-top-res-320-value="980" data-field-top-res-480-value="871" data-field-top-res-640-value="764" data-field-top-res-960-value="787" data-field-top-value="-298" data-field-topunits-value="" data-field-width-res-960-value="100" data-field-width-value="120" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484178575'>0 59 50 0<br>255 109 112
+                            <br>ff6d70</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484224710' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1000,'mx':-947,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'},{'di':800,'mx':-947,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="90" data-elem-id='1555484224710' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="1605" data-field-left-res-480-value="1605" data-field-left-res-640-value="1605" data-field-left-value="1605" data-field-leftunits-value="" data-field-top-res-320-value="-475" data-field-top-res-480-value="-272" data-field-top-res-640-value="51" data-field-top-value="91" data-field-topunits-value="" data-field-width-value="208" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484224710'>PANTONE 2345 C</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484255231' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1000,'mx':-947,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'},{'di':800,'mx':-947,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="400" data-elem-id='1555484255231' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="1605" data-field-left-res-480-value="1605" data-field-left-res-640-value="1605" data-field-left-value="1605" data-field-leftunits-value="" data-field-top-res-320-value="-165" data-field-top-res-480-value="38" data-field-top-res-640-value="361" data-field-top-value="401" data-field-topunits-value="" data-field-width-value="98" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484255231'>CMYK:<br>sRGB:<br>HTML:</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484274301' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1000,'mx':-947,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'},{'di':800,'mx':-947,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="400" data-elem-id='1555484274301' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="1695" data-field-left-res-480-value="1695" data-field-left-res-640-value="1695" data-field-left-value="1695" data-field-leftunits-value="" data-field-top-res-320-value="-166" data-field-top-res-480-value="37" data-field-top-res-640-value="360" data-field-top-value="400" data-field-topunits-value="" data-field-width-value="98" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484274301'>0 59 50 0<br>255 109 112<br>ff6d70</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484579871' data-animate-fix-dist="1800" data-animate-fix-trgofst="660" data-animate-fix="0" data-elem-id='1555484579871' data-elem-type='shape' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-height-res-320-value="150" data-field-height-res-480-value="157" data-field-height-res-640-value="157" data-field-height-value="157" data-field-heightunits-value="" data-field-left-res-320-value="11" data-field-left-res-480-value="11" data-field-left-res-640-value="11" data-field-left-res-960-value="595" data-field-left-value="21" data-field-leftunits-value="" data-field-top-res-320-value="689" data-field-top-res-480-value="659" data-field-top-res-640-value="443" data-field-top-res-960-value="461" data-field-top-value="651" data-field-topunits-value="" data-field-width-res-320-value="150" data-field-width-res-480-value="300" data-field-width-res-640-value="355" data-field-width-value="340" data-field-widthunits-value="">
+                        <div class='tn-atom'></div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484579878' data-animate-fix-dist="1800" data-animate-fix-trgofst="660" data-animate-fix="0" data-elem-id='1555484579878' data-elem-type='button' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-height-res-320-value="150" data-field-height-res-640-value="157" data-field-height-value="157" data-field-heightunits-value="" data-field-left-res-320-value="161" data-field-left-res-480-value="311" data-field-left-res-640-value="366" data-field-left-res-960-value="793" data-field-left-value="360" data-field-leftunits-value="" data-field-top-res-320-value="689" data-field-top-res-480-value="659" data-field-top-res-640-value="443" data-field-top-res-960-value="461" data-field-top-value="651" data-field-topunits-value="" data-field-width-res-320-value="150" data-field-width-res-480-value="160" data-field-width-res-640-value="265" data-field-width-value="157" data-field-widthunits-value="">
+                        <a class='tn-atom' href="#copy-color">copy</a>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484579884' data-animate-fix-dist="1800" data-animate-fix-trgofst="715" data-animate-fix="0" data-elem-id='1555484579884' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="54" data-field-left-res-480-value="129" data-field-left-res-640-value="156" data-field-left-res-960-value="662" data-field-left-value="159" data-field-leftunits-value="" data-field-top-res-320-value="749" data-field-top-res-480-value="724" data-field-top-res-640-value="508" data-field-top-res-960-value="526" data-field-top-value="711" data-field-topunits-value="" data-field-width-value="62" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555484579884'>#ff6f61</div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555484632309' data-elem-id='1555484632309' data-elem-type='shape' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-height-res-320-value="300" data-field-height-res-480-value="460" data-field-height-res-640-value="380" data-field-height-res-960-value="538" data-field-height-value="462" data-field-heightunits-value="" data-field-left-res-320-value="10" data-field-left-res-480-value="10" data-field-left-res-640-value="10" data-field-left-res-960-value="21" data-field-left-value="-48" data-field-leftunits-value="" data-field-top-res-320-value="328" data-field-top-res-480-value="139" data-field-top-res-640-value="2" data-field-top-res-960-value="80" data-field-top-value="-557" data-field-topunits-value="" data-field-width-res-320-value="300" data-field-width-res-480-value="460" data-field-width-res-640-value="355" data-field-width-res-960-value="502" data-field-width-value="462" data-field-widthunits-value="">
+                        <div class='tn-atom t-bgimg' data-original="https://static.tildacdn.com/tild3962-3631-4232-b764-306333336362/mini_swatch_web.jpg" style="background-image:url('https://static.tildacdn.com/tild3962-3631-4232-b764-306333336362/-/resize/20x/mini_swatch_web.jpg');"></div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555485905093' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1200,'mx':-1327,'my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'},{'di':600,'mx':-1327,'my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="400" data-elem-id='1555485905093' data-elem-type='button' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-height-res-480-value="45" data-field-height-value="60" data-field-heightunits-value="" data-field-left-res-320-value="263" data-field-left-res-480-value="423" data-field-left-res-640-value="560" data-field-left-res-960-value="890" data-field-left-value="2360" data-field-leftunits-value="" data-field-top-res-320-value="1124" data-field-top-res-480-value="1029" data-field-top-res-640-value="791" data-field-top-res-960-value="814" data-field-top-value="410" data-field-topunits-value="" data-field-width-res-480-value="45" data-field-width-value="60" data-field-widthunits-value="">
+                        <a class='tn-atom' href="https://www.pantone.com/images/color-of-the-year/2019/pantone-color-of-the-year-2019-living-coral-16-1546-for-adobe.ase" target="_blank">→</a>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555488645877' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1000,'mx':1800,'my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="0" data-elem-id='1555488645877' data-elem-type='shape' data-field-axisx-value="right" data-field-axisy-value="top" data-field-container-value="window" data-field-height-value="100" data-field-heightunits-value="%" data-field-left-res-480-value="1627" data-field-left-res-640-value="1627" data-field-left-value="1627" data-field-leftunits-value="" data-field-top-res-480-value="-80" data-field-top-res-640-value="-40" data-field-top-value="0" data-field-topunits-value="" data-field-width-value="100" data-field-widthunits-value="%">
+                        <div class='tn-atom'></div>
+                    </div>
+                    <div class='t396__elem tn-elem tn-elem__1015035891555925186574' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1200,'mx':-1327,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'},{'di':600,'mx':-1327,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="100" data-elem-id='1555925186574' data-elem-type='text' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="grid" data-field-heightunits-value="" data-field-left-res-320-value="10" data-field-left-res-480-value="10" data-field-left-res-640-value="310" data-field-left-res-960-value="600" data-field-left-value="2360" data-field-leftunits-value="" data-field-top-res-320-value="1109" data-field-top-res-480-value="1019" data-field-top-res-640-value="767" data-field-top-res-960-value="785" data-field-top-value="95" data-field-topunits-value="" data-field-width-res-320-value="168" data-field-width-res-480-value="318" data-field-width-value="218" data-field-widthunits-value="">
+                        <div class='tn-atom' field='tn_text_1555925186574' target="_blank">
+                            <a href="https://www.pantone.com/images/color-of-the-year/2019/pantone-color-of-the-year-2019-living-coral-16-1546-for-adobe.ase" style="pointer-events: none; color: rgb(0, 0, 0) !important;">Get Living Coral in ASE file format for Adobe® Applications.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    t396_init('101503589');
+                });
+            </script>
+            <!-- /T396 -->
+        </div>
+    
+        <div class="r t-rec t-screenmin-1200px" data-animationappear="off" data-record-type="396" data-screen-min="1200px" id="rec101778341" style=" ">
+            <!-- T396 -->
+            <style>
+                    #rec101778341 .t396__artboard {
+                        height: 195px;
+                        background-color: #ffffff;
+                    }
+                    #rec101778341 .t396__filter {
+                        height: 195px;
+                    }
+                    #rec101778341 .t396__carrier {
+                        height: 195px;
+                        background-position: center center;
+                        background-attachment: scroll;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101778341 .t396__artboard {}
+                        #rec101778341 .t396__filter {}
+                        #rec101778341 .t396__carrier {
+                            background-attachment: scroll;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {}
+                    @media screen and(max-width: 639px) {}
+                    @media screen and(max-width: 479px) {}
+            </style>
+            <div class='t396'>
+                <div class="t396__artboard" data-artboard-height="195" data-artboard-height_vh="" data-artboard-ovrflw="" data-artboard-recid="101778341" data-artboard-valign="center">
+                    <div class="t396__carrier" data-artboard-recid="101778341"></div>
+                    <div class="t396__filter" data-artboard-recid="101778341"></div>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    t396_init('101778341');
+                });
+            </script>
+            <!-- /T396 -->
+        </div>
+
+        <div class="r t-rec t-screenmin-1200px" data-animationappear="off" data-record-type="396" data-screen-min="1200px" id="rec101503594" style=" ">
+        <!-- T396 -->
+        <style>
+                    #rec101503594 .t396__artboard {
+                        height: 3692px;
+                        background-color: #ffffff;
+                    }
+                    #rec101503594 .t396__filter {
+                        height: 3692px;
+                    }
+                    #rec101503594 .t396__carrier {
+                        height: 3692px;
+                        background-position: center center;
+                        background-attachment: scroll;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    @media screen and(max-width: 1199px) {
+                        #rec101503594 .t396__artboard {}
+                        #rec101503594 .t396__filter {}
+                        #rec101503594 .t396__carrier {
+                            background-attachment: scroll;
+                        }
+                    }
+                    @media screen and(max-width: 959px) {}
+                    @media screen and(max-width: 639px) {}
+                    @media screen and(max-width: 479px) {}
+                    #rec101503594 .tn-elem[data-elem-id="1555320026980"] {
+                        z-index: 4;
+                        top: 0;
+                        left: 0;
+                        width: 250%;
+                        height: 436px;
+                    }
+                    #rec101503594 .tn-elem[data-elem-id="1555320026980"] .tn-atom {
+                        background-color: #ffffff;
+                        background-position: center center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {}
+                    @media screen and(max-width: 639px) {}
+                    @media screen and(max-width: 479px) {}
+                    #rec101503594 .tn-elem[data-elem-id="1555320076273"] {
+                        z-index: 3;
+                        top: 415px;
+                        left: calc(100% - 250px + 0px);
+                        width: 250%;
+                        height: 436px;
+                    }
+                    #rec101503594 .tn-elem[data-elem-id="1555320076273"] .tn-atom {
+                        background-color: #ffffff;
+                        background-position: center center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {}
+                    @media screen and(max-width: 639px) {}
+                    @media screen and(max-width: 479px) {}
+                    #rec101503594 .tn-elem[data-elem-id="1555418676528"] {
+                        z-index: 5;
+                        top: 850px;
+                        left: calc(50% - 50px + 0px);
+                        width: 100%;
+                        height: 872px;
+                    }
+                    #rec101503594 .tn-elem[data-elem-id="1555418676528"] .tn-atom {
+                        background-color: #ffffff;
+                        background-position: center center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        border-color: transparent;
+                        border-style: solid;
+                    }
+                    @media screen and(max-width: 1199px) {}
+                    @media screen and(max-width: 959px) {}
+                    @media screen and(max-width: 639px) {}
+                    @media screen and(max-width: 479px) {}
+        </style>
+        <div class='t396'>
+            <div class="t396__artboard" data-artboard-height="3692" data-artboard-height_vh="" data-artboard-ovrflw="" data-artboard-recid="101503594" data-artboard-valign="center">
+                <div class="t396__carrier" data-artboard-recid="101503594"></div>
+                <div class="t396__filter" data-artboard-recid="101503594"></div>
+                <div class='t396__elem tn-elem tn-elem__1015035941555320026980' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','di':'0'},{'mx':-1950,'my':0,'sx':'1','sy':'1','op':'1','ro':'0','bl':'0','di':1950,'fi':'fixed'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="0" data-elem-id='1555320026980' data-elem-type='shape' data-field-axisx-value="left" data-field-axisy-value="top" data-field-container-value="window" data-field-height-value="436" data-field-heightunits-value="" data-field-left-value="0" data-field-leftunits-value="px" data-field-top-value="0" data-field-topunits-value="px" data-field-width-value="250" data-field-widthunits-value="%">
+                    <div class='tn-atom t-bgimg' data-original="https://static.tildacdn.com/tild6561-6336-4437-a135-666665613265/1-04.svg" style="background-image:url('https://static.tildacdn.com/tild6561-6336-4437-a135-666665613265/1-04.svg');"></div>
+                </div>
+                <div class='t396__elem tn-elem tn-elem__1015035941555320076273' data-animate-sbs-event="scroll" data-animate-sbs-opts="[{'di':'0','mx':'0','my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'','dd':'0'},{'di':1950,'mx':1950,'my':'0','sx':'1','sy':'1','op':'1','ro':'0','bl':'0','fi':'fixed','dd':'0'}]" data-animate-sbs-trg="0" data-animate-sbs-trgofst="436" data-elem-id='1555320076273' data-elem-type='shape' data-field-axisx-value="right" data-field-axisy-value="top" data-field-container-value="window" data-field-height-value="436" data-field-heightunits-value="" data-field-left-value="0" data-field-leftunits-value="px" data-field-top-value="415" data-field-topunits-value="px" data-field-width-value="250" data-field-widthunits-value="%">
+                    <div class='tn-atom t-bgimg' data-original="https://static.tildacdn.com/tild3833-3931-4034-b866-613938636632/2-05.svg" style="background-image:url('https://static.tildacdn.com/tild3833-3931-4034-b866-613938636632/2-05.svg');"></div>
+                </div>
+                <div class='t396__elem tn-elem tn-elem__1015035941555418676528' data-animate-fix-dist="1950" data-animate-fix-trgofst="872" data-animate-fix="0" data-elem-id='1555418676528' data-elem-type='shape' data-field-axisx-value="center" data-field-axisy-value="top" data-field-container-value="window" data-field-height-value="872" data-field-heightunits-value="" data-field-left-value="0" data-field-leftunits-value="" data-field-top-value="850" data-field-topunits-value="" data-field-width-value="100" data-field-widthunits-value="%">
+                    <div class='tn-atom t-bgimg' data-original="https://static.tildacdn.com/tild3562-6363-4563-b636-623862373534/3-06.svg" style="background-image:url('https://static.tildacdn.com/tild3562-6363-4563-b636-623862373534/3-06.svg');"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                t396_init('101503594');
+            });
+        </script>
+        <!-- /T396 -->
+        </div>
+    </div>
+<!-- panton end -->

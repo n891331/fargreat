@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- wow -->
+    <link rel="stylesheet" href="css/index4.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="js/vendor/wow.min.js"></script>
+    <!-- scrollSpy plugin see https://github.com/thesmart/jquery-scrollspy -->
+    <script src="https://gitcdn.xyz/repo/thesmart/jquery-scrollspy/0.1.3/scrollspy.js"></script>
+
+    <!-- grid menu -->
+    <link rel="stylesheet" type="text/css" href="GridMenu_i27/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="GridMenu_i27/css/demo2.css" />
+    
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	</head>
+
+    <!-- wow -->
+    <script>
+        // Helper function for add element box list in WOW
+        // WOW.prototype.addBox = function(element) {
+        //     this.boxes.push(element);
+        // };
+        var wow = new WOW();
+        wow.init();
+        // $('.wow').on('scrollSpy:exit', function() {
+        //     $(this).css({
+        //     'visibility': 'hidden',
+        //     'animation-name': 'none'
+        //     }).removeClass('animated');
+        //     wow.addBox(this);
+        // }).scrollSpy();
+
+    </script>
+    <!--  水平移動 jInvertScroll -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="jQuery-InvertScroll/dist/js/jquery.jInvertScroll.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+        var elem = $.jInvertScroll(['.scroll','.scroll2'],        // an array containing the selector(s) for the elements you want to animate
+            {
+           // height: 6000,                   // optional: define the height the user can scroll, otherwise the overall length will be taken as scrollable height
+            onScroll: function(percent) {   //optional: callback function that will be called when the user scrolls down, useful for animating other things on the page
+                console.log(percent);
+            }
+        });
+        $(window).resize(function() {
+          if ($(window).width() <= 768) {
+            elem.destroy();
+          }
+          else {
+            elem.reinitialize();
+          }
+        });
+    });
+       
+        </script>
+        
+
+    <style>
+        .box1 {
+            display: flex;
+        }
+
+        .cont1 {
+            width: 50px;
+            height: 200px;
+            background-color: #4c63da;
+        }
+
+        .cont2 {
+            width: 400px;
+            height: 200px;
+            background-color: #6181e4;
+        }
+        
+        .cont3 {
+            width: 200px;
+            height: 200px;
+            background-color: #2c46ce;
+        }
+        
+        .cont4 {
+            width: 100px;
+            height: 200px;
+            background-color:#9aa8f0;
+        }
+        .box2 {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        /* 測試scroll */
+        body {
+            overflow-x: hidden;
+        }
+
+        .scroll {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .scroll2 {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            animation-direction: reverse;
+        }
+
+        /* .front {
+            z-index: 500;
+            top: 0px;
+            width: 2100px;
+        } */
+
+        .down {
+            /* z-index: 500; */
+            top: 310px;
+            /* right: 0; */
+            width: 2100px;
+        }
+
+        .page {
+            top: 0px;
+            left: 0px;
+            /* width: 500px; */
+            /* background: pink; */
+            /* padding: 10px 30px; */
+            /* border: 1px #eee solid; */
+            /* outline: 1px #eee solid; */
+            position: absolute;
+        }
+
+        .pa {
+            position: absolute;
+            right:0;
+          /* top: 310px; */
+        }
+
+        .x1{  left: 0px;  }
+
+        .x2{  left: 400px;  }
+
+        .x3{  left: 900px;  }
+
+        .x4{  left: 1200px;  }
+
+        .x5{  left: 1600px;  }
+
+        /* x6{  left: 2100px;  } */
+
+        .z1{  right: 0px;  }
+
+        .z2{  right: 500px;  }
+
+        .z3{  right: 900px;  }
+
+        .z4{  right: 1200px;  }
+
+        .z5{  right: 1700px;  }
+
+        .test {
+            margin-top: 1000px;
+          /* display: block; */
+            position: absolute;
+        }
+    </style>
+
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- grid menu -->
+        <section>
+            <div class="message">To see the menu, please view on a larger screen.</div>
+            <div class="content content--fixed">
+                <!-- <header class="codrops-header">
+                    <div class="codrops-links">
+                        <a class="codrops-icon codrops-icon--prev" href="https://tympanus.net/Development/GlitchSlideshow/" title="Previous Demo"><svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg></a>
+                        <a class="codrops-icon codrops-icon--drop" href="https://tympanus.net/codrops/?p=34419" title="Back to the article"><svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg></a>
+                    </div>
+                    <h1 class="codrops-header__title">Grid Menu</h1>
+                    <span class="info">Inspired by <a href="https://www.youtube.com/watch?v=Z9Ku5ptjzKw">Ableton Live 10: What's New</a></span>
+                </header> -->
+                <!-- <nav class="demos">
+                    <a class="demo" href="index.html">demo 1</a>
+                    <a class="demo demo--current" href="index2.html">demo 2</a>
+                    <a href="https://github.com/codrops/GridMenu" class="github">github</a>
+                </nav> -->
+                <button class="menu-trigger">● ● ●</button>
+            </div>
+            <!-- menu content -->
+            <div id="content-1" class="content content--switch content--switch-current">
+                <h2 class="content__title">Home</h2>
+                <div class="content__subtitle">explore nature</div>
+            </div>
+            <div id="content-2" class="content content--switch">
+                <h2 class="content__title">About us</h2>
+                <div class="content__subtitle">Lift your spirits</div>
+            </div>
+            <div id="content-3" class="content content--switch">
+                <h2 class="content__title">Team</h2>
+                <div class="content__subtitle">Find yourself</div>
+            </div>
+            <div id="content-4" class="content content--switch">
+                <h2 class="content__title">Service</h2>
+                <div class="content__subtitle">Uncover beauty</div>
+            </div>
+            <div id="content-5" class="content content--switch">
+                <h2 class="content__title">Contact</h2>
+                <div class="content__subtitle">Feel nature</div>
+            </div>
+            <div id="content-6" class="content content--switch">
+                <h2 class="content__title">Portfolio</h2>
+                <div class="content__subtitle">Explore your limits</div>
+            </div>
+            <!-- grid content -->
+            <nav class="grim">
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--1"></div>
+                </div>
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--2"></div>
+                </div>
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--3"></div>
+                    <div class="grim__item-content">
+                        <div class="grim__item-inner">
+                            <button class="menu-trigger menu-trigger--close">- close</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--4"></div>
+                </div>
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--5"></div>
+                    <a href="#content-1" class="grim__link grim__item-content">
+                        <div class="grim__item-inner">
+                            <h3 class="grim__item-title">Home</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--6"></div>
+                    <div class="grim__item-img grim__item-img--1" style="background-image: url(GridMenu_i27/img/1.jpg);"></div>
+                    <a href="#content-2" class="grim__link grim__item-content">
+                        <div class="grim__item-inner">
+                            <h3 class="grim__item-title">About us</h3>
+                            <span class="grim__item-desc">Lift your spirits</span>
+                        </div>
+                    </a>
+                    <div class="grim__item-bg grim__item-bg-cover grim__item-bg--6"></div>
+                </div>
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--7"></div>
+                    <div class="grim__item-img grim__item-img--2" style="background-image: url(GridMenu_i27/img/2.jpg);"></div>
+                    <a href="#content-3" class="grim__link grim__item-content">
+                        <div class="grim__item-inner">
+                            <h3 class="grim__item-title">Team</h3>
+                            <span class="grim__item-desc">Find yourself</span>
+                        </div>
+                    </a>
+                    <div class="grim__item-bg grim__item-bg-cover grim__item-bg--7"></div>
+                </div>
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--8"></div>
+                    <div class="grim__item-img grim__item-img--3" style="background-image: url(GridMenu_i27/img/3.jpg);"></div>
+                    <a href="#content-4" class="grim__link grim__item-content">
+                        <div class="grim__item-inner">
+                            <h3 class="grim__item-title">Service</h3>
+                            <span class="grim__item-desc">Uncover beauty</span>
+                        </div>
+                    </a>
+                    <div class="grim__item-bg grim__item-bg-cover grim__item-bg--8"></div>
+                </div>
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--9"></div>
+                    <div class="grim__item-img grim__item-img--4" style="background-image: url(GridMenu_i27/img/4.jpg);"></div>
+                    <a href="#content-5" class="grim__link grim__item-content">
+                        <div class="grim__item-inner">
+                            <h3 class="grim__item-title">Contact</h3>
+                            <span class="grim__item-desc">Feel nature</span>
+                        </div>
+                    </a>
+                    <div class="grim__item-bg grim__item-bg-cover grim__item-bg--9"></div>
+                </div>
+                <div class="grim__item">
+                    <div class="grim__item-bg grim__item-bg--10"></div>
+                    <div class="grim__item-img grim__item-img--5" style="background-image: url(GridMenu_i27/img/5.jpg);"></div>
+                    <a href="#content-6" class="grim__link grim__item-content">
+                        <div class="grim__item-inner">
+                            <h3 class="grim__item-title">Portfolio</h3>
+                            <span class="grim__item-desc">Explore your limits</span>
+                        </div>
+                    </a>
+                    <div class="grim__item-bg grim__item-bg-cover grim__item-bg--10"></div>
+                </div>
+            </nav>
+        </section>
+        <!-- why -->
+        <section class=" section_why d-flex flex-column justify-content-center align-items-center">
+                <div class="row">
+                    <div class="col-9 m-auto wow slideInDown " data-wow-duration="2s">
+                        <p>Why Fargreat?</p>
+                        <h1 class="display-4">We've been creating 
+                                digital for Taiwan brightest brands since 2000.</h1>
+                        <a class="btn btn-outline-secondary btn-lg" href="#" role="button">Hear what our clients say</a>  
+                    </div>
+                </div> 
+        </section>
+        <!-- help -->
+        <section class=" section_help d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-sm-6 align-self-center">
+                    <p class="p_big_font">How we help</p>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="list-group">
+                        <li class="list-group-item help_li_bg">DESIGN</li>
+                        <li class="list-group-item help_li_bg">BRANDING</li>
+                        <li class="list-group-item help_li_bg">SEO</li>
+                        <li class="list-group-item help_li_bg">ILLUSTRATION</li>
+                        <li class="list-group-item help_li_bg">MARKETING</li>
+                        <li class="list-group-item help_li_bg">LOGOS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- brand -->
+        <section class=" section_brand d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-12 col-sm-9 align-self-center m-auto">
+                    <h1 class="col-12 display-4 align-self-center m-auto">Using our experience to make your digital experience brighter</h1>
+                    <ul class="row list-group list-group-horizontal mt-5">
+                        <li class="col-6 col-sm-3 list-group-item brand_li_bg m-auto wow fadeInLeft" data-wow-duration="2s"><img src="https://picsum.photos/120/120/?random=1" class="rounded-circle" ></li>
+                        <li class="col-6 col-sm-3 list-group-item brand_li_bg m-autowow wow fadeInLeft" data-wow-duration="2s"><img src="https://picsum.photos/120/120/?random=2" class="rounded-circle"></li>
+                        <li class="col-6 col-sm-3 list-group-item brand_li_bg m-autowow wowfadeInLeft" data-wow-duration="2s"><img src="https://picsum.photos/120/120/?random=3" class="rounded-circle"></li>
+                        <li class="col-6 col-sm-3 list-group-item brand_li_bg m-autowow wow fadeInLeft" data-wow-duration="2s"><img src="https://picsum.photos/120/120/?random=4" class="rounded-circle"></li>
+                    </ul>
+                </div>
+            </div>  
+        </section>
+        <!-- wow -->
+        
+        <section class="scroll">
+            <div class="page x1">
+                <img src="https://picsum.photos/id/0/400/300"/>
+            </div>
+        
+            <div class="page x2">
+                <img src="https://picsum.photos/id/1025/500/300"/>
+            </div>
+        
+            <div class="page x3">
+                <img src="https://picsum.photos/id/100/300/300"/>
+            </div>
+        
+            <div class="page x4">
+                <img src="https://picsum.photos/id/1000/400/300"/>
+            </div>
+            
+            <div class="page x5">
+                <img src="https://picsum.photos/id/1001/500/300"/>
+            </div>
+            
+                <!-- <div class="page x6">
+                <img src="https://picsum.photos/id/1010/300/300"/>
+            </div> -->
+        </section>
+
+            <!-- <div class="down scroll2">
+                <div class="pa z1">
+                    <img src="https://picsum.photos/id/1025/500/300"/>
+                </div>
+            
+                <div class="pa z2">
+                    <img src="https://picsum.photos/id/0/400/300"/>
+            
+                </div>
+            
+                <div class="pa z3">
+                    <img src="https://picsum.photos/id/100/300/300"/>
+                </div>
+            
+                <div class="pa z4">
+                    <img src="https://picsum.photos/id/1001/500/300"/>
+                </div>
+                
+                <div class="pa z5">
+                    <img src="https://picsum.photos/id/1000/400/300"/>
+                </div>
+            </div> -->
+        
+        <!-- team -->
+        <section class=" section_team d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-9 wow slideInDown" data-wow-duration="2s">
+                    <p>Digital agency people</p>
+                    <h1 class="display-4">The brightest minds in digital, at your service 🙌</h1>
+                    <a class="btn btn-outline-secondary btn-lg" href="#" role="button">meet your digital team</a>  
+                </div>
+            </div> 
+        </section>
+        <!-- contact -->
+        <section class=" section_contact mt-5">
+            <div class="row no-gutters align-items-end">
+                <div class="col-12 col-sm-7 contact_left wow slideInUp" data-wow-duration="2.5s">
+                    <p class="m-5">Fargreat</p>
+                    <div class="form-group m-5 ">
+                        <label>Get in Touch</label>
+                        <select class="form-control form-control-lg contact_left_select_bg">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 contact_right wow slideInUp" data-wow-duration="3s">
+                    <p class="m-5">Fargreat</p>
+                    <div class="form-group m-5">
+                        <label>Keep in Touch</label>
+                        <div class="input-group contact_right_select_bg">
+                            <input type="text" class="form-control">
+                            <div class="input-group-append ">
+                                <a href="#" class="input-group-text btn btn-light">send</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+       
+
+    </div>
+    <script src="GridMenu_i27/js/demo.js"></script>
+    <script src="GridMenu_i27/js/imagesloaded.pkgd.min.js"></script>
+    <script src="GridMenu_i27/js/anime.min.js"></script>
+    <script src="GridMenu_i27/js/menu2.js"></script>  
+        
+    
+</body>
+</html>

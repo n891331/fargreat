@@ -1,0 +1,130 @@
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#logo {
+    width: 80px;
+}
+
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.section_why {
+    margin-top: -100px;
+    height: 720px;
+    background-color: #FF543C;
+    color: #fff;
+}
+
+.section_help {
+    height: 720px;
+    background-color: #310a44;
+    color: #fff;
+}
+
+.help_li_bg {
+    background-color: #310a44;
+}
+
+.p_big_font {
+    font-size: 6vw;
+}
+
+.section_brand {
+    background-color: #007c5f;
+    color: #fff;
+    height: 720px;
+}
+
+.brand_li_bg {
+    background-color: #007c5f;
+    border: none;
+}
+
+.section_team {
+    height: 720px;
+    color: #fff;
+    background-image: url(/img/team.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.section_contact {
+    padding-right: 0px;
+    padding-left: 0px;
+    color: #fff
+}
+
+.contact_left {
+    background-color: #e43244;
+    height: 620px;
+}
+
+.contact_left_select_bg {
+    color: #e43244;
+}
+
+.contact_right {
+    background-color: rgb(51, 51, 51);
+    height: 450px;
+}
+
+.contact_right_select_bg {
+    color: rgb(51, 51, 51);
+}
+
+/* grid menu */
+#content-1,#content-2,#content-3,#content-4,#content-5,#content-6 {
+    display: none;
+}
+/* frame */
+/* @media screen and (max-width: 767px) { */
+    @media screen and (max-width: 55em) {
+    .frame {
+        display: none;
+    }
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+/* land */
+.content__title {
+    padding-top: 60vh;
+}
+
+
+/* career footer */
+/* footer {
+    margin-top: 103px;
+} */
+#keepInTouch .keep-in-touch-email-form-in input {
+    border: 1px solid currentColor;
+    background-color: #000;
+    color: #fff;
+    font-family: europa,CezanneProN-M,sans-serif!important;
+}
+
+@media (max-width: 1680px) {
+    .keep-in-touch-email-form form input {
+        font-size: calc(12px + 2 * ((100vw - 320px)/ 1360));
+    }
+}
+
+.page-cover {
+    height: 300px;
+}
+@media (max-width: 768px){
+    .page-cover {
+        height: 160px;
+    }
+}
+
+.title {
+    color: #fff;
+}
+/* au */

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="704px" height="770px" viewBox="0 0 704 770" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Brand / Mark </title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M101.494981,373.637208 C62.5833962,373.637208 27.1473396,388.148434 0,411.915792 L0,629.87083 L217.130943,629.87083 C241.125226,602.675717 255.80366,567.060509 255.80366,527.945887 C255.80366,442.717811 186.711113,373.637208 101.494981,373.637208 M101.471094,0 C61.3054528,0 27.4698113,14.7978679 0,38.039717 L0,270.601528 C29.5837925,295.969302 65.5334151,308.653189 101.471094,308.653189 C186.03034,308.653189 255.80366,238.891811 255.80366,154.332566 C255.80366,69.7733208 186.03034,0 101.471094,0 M321.444566,528.399736 C321.444566,443.840491 391.205943,374.06717 475.765189,374.06717 C560.324434,374.06717 630.097755,443.840491 630.097755,528.399736 C630.097755,564.337415 617.413868,600.287038 592.046094,629.87083 L359.50817,629.87083 C336.242434,602.401019 321.444566,568.553434 321.444566,528.399736" id="path-1"></path>
+    </defs>
+    <g id="Agency-Site" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(1.000000, -874.000000)">
+            <g id="Stacked-Group-2">
+                <g id="Section-/-Fullscreen-Slide-/-Media-(Right)" transform="translate(0.000000, 876.000000)">
+                    <g id="Brand-/-Mark-" transform="translate(66.000000, 71.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Logomark" fill="#FF5438" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <g id="Colour-/-Primary-2-(Hover)" mask="url(#mask-2)" fill="#E82E00" fill-rule="evenodd">
+                            <rect id="Rectangle" x="0" y="0" width="633" height="633"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

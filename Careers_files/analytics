@@ -1,0 +1,28 @@
+
+function piResponse() {
+		piSetCookie('visitor_id604861', '67452797', 3650);
+			piSetCookie('visitor_id604861-hash', '71f76b16fd9cae1d685aba60b37aba17b94fb246638a4af81f9f9c9e1e1847f83895c5937d1a2ad7e6358a57e5dd29d938367d70', 3650);
+		
+		if (document.location.protocol != "https:" || (document.location.protocol == "https:" && true)) {
+		var analytics_link = document.location.protocol + "//" + "pr.branu.jp/analytics?";
+		pi.tracker.visitor_id='67452797';
+
+				pi.tracker.visitor_id_sign='71f76b16fd9cae1d685aba60b37aba17b94fb246638a4af81f9f9c9e1e1847f83895c5937d1a2ad7e6358a57e5dd29d938367d70';
+		
+		var variables = 'conly=true';
+		for (property in pi.tracker) {
+					variables += "&" + property + "=" + encodeURIComponent(pi.tracker[property]);
+				}
+		var headID = document.getElementsByTagName("head")[0];
+		piScriptObj[piScriptNum] = document.createElement('script');
+		piScriptObj[piScriptNum].type = 'text/javascript';
+		piScriptObj[piScriptNum].src = analytics_link + variables;
+		headID.appendChild(piScriptObj[piScriptNum]);
+		piScriptObj[piScriptNum].onload = function() { return; }
+	}
+	}
+piResponse();
+
+
+
+
