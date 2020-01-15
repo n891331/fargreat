@@ -127,4 +127,70 @@ a:hover {
 .title {
     color: #fff;
 }
-/* au */
+/* section 1 */
+
+.bg-theme-5.theme-color, .bg-theme-5:not(.theme-color) .section-background {
+    background-color: #DCF3E7;
+}
+
+.bg-theme-5 div:not(.wrapper):not(.tile-title):not(.tile-address-details):not(.description):not(.weather-details):not(.modal-details):not(.crystal-ball):not(.layout-wrapper):not(.c-author):not(.tile-content)>h5 {
+    color: #2F41CD;
+}
+
+.bg-theme-5 div:not(.wrapper):not(.tile-title):not(.tile-address-details):not(.description):not(.weather-details):not(.modal-details):not(.crystal-ball):not(.layout-wrapper):not(.c-author):not(.tile-content)>h1 {
+    color: #2F41CD;
+}
+
+.bg-theme-7.theme-color, .bg-theme-7:not(.theme-color) .section-background {
+    background-color: #2F41CD;
+}
+
+.bg-theme-3.theme-color, .bg-theme-3:not(.theme-color) .section-background {
+    background-color: #fff;
+}
+
+.bg-theme-3 div:not(.wrapper):not(.tile-title):not(.tile-address-details):not(.description):not(.weather-details):not(.modal-details):not(.crystal-ball):not(.layout-wrapper):not(.c-author):not(.tile-content)>h1 {
+    color: #2F41CD;
+}
+
+.s-how-we-help a {
+    color: #2F41CD;
+}
+
+.page-content>.s-full-background.bg-theme-3 .s-how-we-help .text-wrapper h1::before {
+    background: #fff;
+}
+
+.footer-get-in-field .footer-content-outer {
+    background-color: #2F41CD;
+}
+
+.section-form-select-types-footer .section-form-select-types-inner .form-select-type {
+    color: #fff;
+}
+
+.footer-keep-in-field .footer-content-outer {
+    background-color: #DCF3E7;
+    color: #2F41CD;
+}
+
+.title {
+    color: #2F41CD;
+}
+
+input:not([type=submit]):not([type=checkbox]):not([type=file]):not([type=radio]) {
+    padding: 22px 16px;
+}
+
+#keepInTouch .keep-in-touch-email-form-in input {
+    background-color: #2F41CD;
+}
+
+.keep-in-field-wrap .keep-in-touch-email-form-in button {
+    background-color: #fff;
+    color: #2F41CD;
+}
+
+.footer-get-in-field .copyright {
+    color: #fff;
+}
